@@ -4,6 +4,16 @@ version = "0.1.0"
 authors = ["Adilson Neto <almeidneto@gmail.com>"]
 edition = "2018"
 
+readme = "README.md"
+
+keywords = ["builder", "macro"]
+categories = ["development-tools"]
+
+description = "A optional builder derive macro for helping with big constructors with mostly optional parameters"
+repository = "https://github.com/aaneto/optbuilder"
+license = "MIT"
+
+
 [lib]
 proc-macro = true
 
