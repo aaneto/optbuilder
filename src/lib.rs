@@ -107,9 +107,7 @@ fn is_optional_builder_skip(attribute: syn::Attribute) -> bool {
 /// responsible for both injecting data into
 /// field and removing it.
 #[proc_macro_derive(OptionalBuilder, attributes(optbuilder, skip))]
-pub fn optional_builder(
-    input: proc_macro::TokenStream,
-) -> proc_macro::TokenStream {
+pub fn optional_builder(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let mut derive_input = parse_macro_input!(input as DeriveInput);
     let mut builder_impls: TokenStream = TokenStream::new();
 
@@ -124,7 +122,7 @@ pub fn optional_builder(
                     }
                 }
 
-                if !to_remove.is_empty(){
+                if !to_remove.is_empty() {
                     to_remove.sort();
 
                     for (idx_counter, idx) in to_remove.iter().enumerate() {
@@ -152,7 +150,7 @@ pub fn optional_builder(
     if !builder_impls.is_empty() {
         let mut input_stream = TokenStream::new();
         derive_input.to_tokens(&mut input_stream);
-        
+
         let struct_name = derive_input.ident.clone();
         let (impl_generics, ty_generics, where_clause) = derive_input.generics.split_for_impl();
 
@@ -163,7 +161,6 @@ pub fn optional_builder(
                 #builder_impls
             }
         };
-
 
         implementations.into()
     } else {
