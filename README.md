@@ -49,5 +49,5 @@ struct Foo {
 Add the following lines to your Cargo.toml
 ```toml
 [dependencies]
-optbuilder = "0.1.0"
+optbuilder = "0.1.1"
 ```
