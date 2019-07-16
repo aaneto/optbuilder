@@ -1,4 +1,5 @@
 # Optbuilder
+[![Build Status](https://travis-ci.org/aaneto/optbuilder.svg?branch=master)](https://travis-ci.org/aaneto/optbuilder)
 
 This crate was born out of my laziness while implementing a wrapper for the Telegram API. Many methods of the API required parameters that were mostly optional, leaving me in a situation where I would write code like this:
 
@@ -54,11 +55,11 @@ optbuilder = "0.1.1"
 
 ## Why not use a builder crate?
 
-Basically because many times I had a default implementation or a reasonable constructor and the optional fields were defaulted to None.
+Basically because many times I had a default implementation that turned the option types to None
 
 ## Issues
 
-In some situations, the compiler may complain about types, since the From trait is used on the builder arguments, errros like this one can happen:
+Since the From trait is used extensively on the crate, the compiler may complain about types and errors like this can happen
 
 ```rust
 use optbuilder::OptionalBuilder;
