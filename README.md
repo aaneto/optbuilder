@@ -51,3 +51,34 @@ Add the following lines to your Cargo.toml
 [dependencies]
 optbuilder = "0.1.1"
 ```
+
+## Why not use a builder crate?
+
+Basically because many times I had a default implementation or a reasonable constructor and the optional fields were defaulted to None.
+
+## Issues
+
+In some situations, the compiler may complain about types, since the From trait is used on the builder arguments, errros like this one can happen:
+
+```rust
+use optbuilder::OptionalBuilder;
+
+#[derive(Debug, Default, OptionalBuilder)]
+struct Foo {
+    name: String,
+    id: Option<i32>,
+    uid: Option<u32>,
+}
+
+fn main() {
+    let f = Foo::default().with_id(2).with_uid(3);
+
+    println!("{:?}", f);
+}
+
+error[E0277]: the trait bound `u32: std::convert::From<i32>` is not satisfied
+  --> src/main.rs:11:39
+   |
+11 |     let f = Foo::default().with_id(2).with_uid(3);
+   |                                       ^^^^^^^^ the trait `std::convert::From<i32>` is not implemented for `u32`
+```
