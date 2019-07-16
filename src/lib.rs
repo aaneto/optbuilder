@@ -106,7 +106,7 @@ fn is_optional_builder_skip(attribute: syn::Attribute) -> bool {
 /// with_#field_name and without_#fieldname,
 /// responsible for both injecting data into
 /// field and removing it.
-#[proc_macro_derive(OptionalBuilder, attributes(optbuilder, skip))]
+#[proc_macro_derive(OptionalBuilder, attributes(optbuilder))]
 pub fn optional_builder(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let mut derive_input = parse_macro_input!(input as DeriveInput);
     let mut builder_impls: TokenStream = TokenStream::new();
