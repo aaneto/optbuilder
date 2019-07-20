@@ -1,5 +1,6 @@
 # Optbuilder
 [![Build Status](https://travis-ci.org/aaneto/optbuilder.svg?branch=master)](https://travis-ci.org/aaneto/optbuilder)
+[![codecov](https://codecov.io/gh/aaneto/optbuilder/branch/master/graph/badge.svg)](https://codecov.io/gh/aaneto/optbuilder)
 
 This crate was born out of my laziness while implementing a wrapper for the Telegram API. Many methods of the API required parameters that were mostly optional, leaving me in a situation where I would write code like this:
 
