@@ -18,6 +18,6 @@ license = "MIT"
 proc-macro = true
 
 [dependencies]
-syn = "0.15.39"
+syn = "1.0.9"
 quote = "0.6.13"
 proc-macro2 = "0.4.30"
