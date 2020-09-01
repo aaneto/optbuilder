@@ -72,10 +72,10 @@ fn get_impl_for_field(stream: TokenStream, field_name_ident: Ident) -> Option<To
 /// Check if an attribute is #[optional_builder(skip)]
 fn is_optional_builder_skip(attribute: syn::Attribute) -> bool {
     if let Some(segment) = attribute.path.segments.first() {
-        let ident = segment.value().ident.clone();
+        let ident = segment.ident.clone();
 
         if ident == Ident::new("optbuilder", ident.span()) {
-            let tokens: Vec<TokenTree> = attribute.clone().tts.into_iter().collect();
+            let tokens: Vec<TokenTree> = attribute.tokens.into_iter().collect();
 
             // Our token has only one element, a group "(skip)"
             if tokens.len() > 1 {
